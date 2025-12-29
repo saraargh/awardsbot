@@ -19,7 +19,13 @@
     "opened_at": null,
     "closed_at": null,
     "revealed_at": null,
-    "questions": [],
+    "questions": [
+      {
+        "id": "07d55e4f-a271-4853-b9e0-fc22a2f12cb0",
+        "text": "the poopiest",
+        "created_at": "2025-12-29T17:52:25+00:00"
+      }
+    ],
     "responses": {},
     "reveal_meta": {
       "last_reveal_mode": null
