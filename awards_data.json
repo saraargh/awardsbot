@@ -1,8 +1,30 @@
 {
   "version": 1,
   "settings": {
-    "allowed_role_ids": []
+    "allowed_role_ids": [],
+    "admin": {
+      "allowed_user_ids": [],
+      "allowed_role_ids": []
+    },
+    "defaults": {
+      "public_results_history": true
+    }
   },
-  "active": null,
-  "archive": []
+  "active": {
+    "id": "71691697-bbb7-4939-acaa-924d5793f9f0",
+    "title": "testies",
+    "channel_id": 1455049263976284162,
+    "status": "drafting",
+    "created_at": "2025-12-29T17:51:08+00:00",
+    "opened_at": null,
+    "closed_at": null,
+    "revealed_at": null,
+    "questions": [],
+    "responses": {},
+    "reveal_meta": {
+      "last_reveal_mode": null
+    }
+  },
+  "archive": [],
+  "history": []
 }
