@@ -621,7 +621,7 @@ class RevealControlsView(discord.ui.View):
     async def dump(self, interaction: discord.Interaction, _: discord.ui.Button):
         await self.bot.end_reveal_dump(interaction, self.run_id)
         
-    class AwardsBot(discord.Client):
+class AwardsBot(discord.Client):
     def __init__(self):
         super().__init__(intents=intents)
 
