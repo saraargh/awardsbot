@@ -1,2 +1,8 @@
 {
+  "version": 1,
+  "settings": {
+    "allowed_role_ids": []
+  },
+  "active": null,
+  "archive": []
 }
