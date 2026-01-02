@@ -3,97 +3,37 @@
   "settings": {
     "allowed_role_ids": []
   },
-  "active": {
-    "id": "1455049262193836178-1767314213",
-    "guild_id": 1455049262193836178,
-    "name": "testiiiees",
-    "created_by": 1238834298338152498,
-    "created_at": "2026-01-02T00:36:53.586066+00:00",
-    "status": "locked",
-    "channels": {
-      "announcement": 1455049263976284162,
-      "suggestions": null,
-      "results": null,
-      "modlog": null
-    },
-    "public_messages": {
-      "suggestions_message_id": 1456446155423748238,
-      "submissions_message_id": 1456447254909943994,
-      "chaos_message_id": null
-    },
-    "deadline": "2026-01-09T00:41:24.252980+00:00",
-    "suggestions": [
-      {
-        "id": "sug_1767314242_1238834298338152498",
-        "text": "The most washed dn player",
-        "suggested_by": 1238834298338152498,
-        "at": "2026-01-02T00:37:22.446800+00:00",
-        "state": "approved"
-      },
-      {
-        "id": "sug_1767314265_1238834298338152498",
-        "text": "The hottest",
-        "suggested_by": 1238834298338152498,
-        "at": "2026-01-02T00:37:45.077423+00:00",
-        "state": "approved"
-      },
-      {
-        "id": "sug_1767314283_1238834298338152498",
-        "text": "The silliest girlie",
-        "suggested_by": 1238834298338152498,
-        "at": "2026-01-02T00:38:03.782812+00:00",
-        "state": "approved"
-      }
-    ],
-    "questions": [
-      {
-        "id": "q_1767314308",
-        "text": "the biggest pooper",
-        "type": "user_select",
-        "max": 1,
-        "required": true,
-        "choices": [],
-        "enabled": true,
-        "order": 0
-      },
-      {
-        "id": "q_1767314337",
-        "text": "The most washed dn player",
-        "type": "user_select",
-        "max": 1,
-        "required": true,
-        "choices": [],
-        "enabled": true,
-        "order": 1
-      },
-      {
-        "id": "q_1767314354",
-        "text": "The silliest girlie",
-        "type": "user_select",
-        "max": 1,
-        "required": true,
-        "choices": [],
-        "enabled": true,
-        "order": 2
-      },
-      {
-        "id": "q_1767314367",
-        "text": "The hottest",
-        "type": "user_select",
-        "max": 1,
-        "required": true,
-        "choices": [],
-        "enabled": true,
-        "order": 3
-      }
-    ],
-    "submissions": {},
-    "reveal": {
-      "mode": null,
-      "started_at": null,
-      "current_index": 0,
-      "computed_results": null
+  "active": null,
+  "archive": [
+    {
+      "id": "1455049262193836178-1767314213",
+      "guild_id": 1455049262193836178,
+      "name": "testiiiees",
+      "created_at": "2026-01-02T00:36:53.586066+00:00",
+      "ended_at": "2026-01-02T00:43:05.817427+00:00",
+      "questions": [
+        {
+          "id": "q_1767314308",
+          "text": "the biggest pooper",
+          "type": "user_select"
+        },
+        {
+          "id": "q_1767314337",
+          "text": "The most washed dn player",
+          "type": "user_select"
+        },
+        {
+          "id": "q_1767314354",
+          "text": "The silliest girlie",
+          "type": "user_select"
+        },
+        {
+          "id": "q_1767314367",
+          "text": "The hottest",
+          "type": "user_select"
+        }
+      ],
+      "results": null
     }
-  },
-  "archive": []
+  ]
 }
