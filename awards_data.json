@@ -9,7 +9,7 @@
     "name": "testiiiees",
     "created_by": 1238834298338152498,
     "created_at": "2026-01-02T00:36:53.586066+00:00",
-    "status": "setup_suggestions",
+    "status": "open",
     "channels": {
       "announcement": 1455049263976284162,
       "suggestions": null,
@@ -21,7 +21,7 @@
       "submissions_message_id": null,
       "chaos_message_id": null
     },
-    "deadline": null,
+    "deadline": "2026-01-09T00:40:39.624191+00:00",
     "suggestions": [
       {
         "id": "sug_1767314242_1238834298338152498",
