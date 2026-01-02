@@ -12,7 +12,7 @@
     "status": "setup_suggestions",
     "channels": {
       "announcement": 1455049263976284162,
-      "suggestions": null,
+      "suggestions": 1455049263976284162,
       "results": null,
       "modlog": null
     },
