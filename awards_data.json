@@ -84,24 +84,17 @@
         "order": 2
       },
       {
-        "id": "q_1767315538",
-        "text": "pooooopieee",
-        "type": "user_select",
+        "id": "q_1767315617",
+        "text": "POOOOOPS",
+        "type": "multi_choice",
         "max": 1,
         "required": true,
-        "choices": [],
+        "choices": [
+          "1",
+          "2"
+        ],
         "enabled": true,
         "order": 3
-      },
-      {
-        "id": "q_1767315555",
-        "text": "POOO PIEEEEE",
-        "type": "short_text",
-        "max": 1,
-        "required": true,
-        "choices": [],
-        "enabled": true,
-        "order": 4
       }
     ],
     "submissions": {},
