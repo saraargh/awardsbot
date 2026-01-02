@@ -3,6 +3,34 @@
   "settings": {
     "allowed_role_ids": []
   },
-  "active": null,
+  "active": {
+    "id": "1455049262193836178-1767314213",
+    "guild_id": 1455049262193836178,
+    "name": "testiiiees",
+    "created_by": 1238834298338152498,
+    "created_at": "2026-01-02T00:36:53.586066+00:00",
+    "status": "setup_suggestions",
+    "channels": {
+      "announcement": 1455049263976284162,
+      "suggestions": null,
+      "results": null,
+      "modlog": null
+    },
+    "public_messages": {
+      "suggestions_message_id": null,
+      "submissions_message_id": null,
+      "chaos_message_id": null
+    },
+    "deadline": null,
+    "suggestions": [],
+    "questions": [],
+    "submissions": {},
+    "reveal": {
+      "mode": null,
+      "started_at": null,
+      "current_index": 0,
+      "computed_results": null
+    }
+  },
   "archive": []
 }
