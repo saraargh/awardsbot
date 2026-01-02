@@ -1064,61 +1064,77 @@ class AwardsBot(discord.Client):
     async def post_suggestion_message(self, interaction: discord.Interaction, run_id: str):
         run = self.run_by_id(run_id)
         if not run:
-            await interaction.response.send_message("No active run.", ephemeral=True)
+            await self.safe_respond(interaction, content="No active run.", ephemeral=True)
             return
+    
+        run = normalise_run(run)
         if run.get("status") != "setup_suggestions":
-            await interaction.response.send_message("Suggestions are not open.", ephemeral=True)
+            await self.safe_respond(interaction, content="Suggestions are not open.", ephemeral=True)
             return
+    
         guild = interaction.guild
-        if not guild:
-            await interaction.response.send_message("No guild.", ephemeral=True)
-            return
-
         ch_id = run["channels"].get("suggestions") or run["channels"]["announcement"]
-        ch = guild.get_channel(ch_id)
+        ch = guild.get_channel(ch_id) if guild else None
+    
         if not isinstance(ch, discord.TextChannel):
-            await interaction.response.send_message("Suggestions channel not found.", ephemeral=True)
+            await self.safe_respond(interaction, content="Suggestions channel not found.", ephemeral=True)
             return
-
-        view = PublicEntryView(run_id, include_suggest=True, include_fill=False)
-        msg = await ch.send(
-            f"💡 **Got an idea for _{run.get('name','the awards')}_?**\n"
-            "Suggest an award category you’d love to see included.\n\n"
-            "👉 Click below:",
-            view=view
+    
+        existing_id = run["public_messages"].get("suggestions_message_id")
+        pending = sum(1 for s in run.get("suggestions", []) if s.get("state") == "pending")
+    
+        content = (
+            f"💡 **Suggest an award for _{run['name']}_**\n\n"
+            f"📥 Current suggestions: **{pending}**\n"
+            "👉 Click below to submit an idea:"
         )
+    
+        view = PublicEntryView(run_id, include_suggest=True, include_fill=False)
+    
+        # 🔁 EDIT existing message if it exists
+        if existing_id:
+            try:
+                msg = await ch.fetch_message(existing_id)
+                await msg.edit(content=content, view=view)
+                await self.safe_respond(interaction, content="🔁 Updated existing suggestion post.", ephemeral=True)
+                return
+            except discord.NotFound:
+                # message deleted manually — fall through and recreate
+                pass
+    
+        # 🆕 CREATE new message only if needed
+        msg = await ch.send(content, view=view)
         run["public_messages"]["suggestions_message_id"] = msg.id
         await self.save_data()
-        await self.log_mod(run, f"📣 Suggestions post created in {ch.mention}")
-        await interaction.response.send_message(f"✅ Posted suggestion button in {ch.mention}", ephemeral=True)
-
-    async def submit_suggestion(self, interaction: discord.Interaction, run_id: str, text: str):
-        run = self.run_by_id(run_id)
-        if not run:
-            await interaction.response.send_message("No active awards run.", ephemeral=True)
-            return
-        if run.get("status") != "setup_suggestions":
-            await interaction.response.send_message("Suggestions are closed.", ephemeral=True)
-            return
-
-        t = trim(text, 120)
-        if not t:
-            await interaction.response.send_message("Please enter a suggestion.", ephemeral=True)
-            return
-
-        sid = f"sug_{int(now_utc().timestamp())}_{interaction.user.id}"
-        run["suggestions"].append({
-            "id": sid,
-            "text": t,
-            "suggested_by": interaction.user.id,
-            "at": iso(now_utc()),
-            "state": "pending"
-        })
-
-        await self.save_data()
-        await self.log_mod(run, f"💡 Suggestion submitted: **{t}** (by <@{interaction.user.id}>)")
-        await interaction.response.send_message("✅ Suggestion submitted!", ephemeral=True)
-
+    
+        await self.safe_respond(interaction, content="✅ Posted suggestion button.", ephemeral=True)
+        async def submit_suggestion(self, interaction: discord.Interaction, run_id: str, text: str):
+            run = self.run_by_id(run_id)
+            if not run:
+                await interaction.response.send_message("No active awards run.", ephemeral=True)
+                return
+            if run.get("status") != "setup_suggestions":
+                await interaction.response.send_message("Suggestions are closed.", ephemeral=True)
+                return
+    
+            t = trim(text, 120)
+            if not t:
+                await interaction.response.send_message("Please enter a suggestion.", ephemeral=True)
+                return
+    
+            sid = f"sug_{int(now_utc().timestamp())}_{interaction.user.id}"
+            run["suggestions"].append({
+                "id": sid,
+                "text": t,
+                "suggested_by": interaction.user.id,
+                "at": iso(now_utc()),
+                "state": "pending"
+            })
+    
+            await self.save_data()
+            await self.log_mod(run, f"💡 Suggestion submitted: **{t}** (by <@{interaction.user.id}>)")
+            await interaction.response.send_message("✅ Suggestion submitted!", ephemeral=True)
+    
     async def show_suggestion_review(self, interaction: discord.Interaction, run_id: str, advance: bool):
         run = self.run_by_id(run_id)
         if not run:
