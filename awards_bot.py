@@ -989,46 +989,45 @@ class AwardsBot(discord.Client):
         if not run:
             await self.safe_respond(interaction, content="No active run.", ephemeral=True)
             return
+    
         run = normalise_run(run)
-
+    
         if run.get("status") != "setup_suggestions":
             await self.safe_respond(interaction, content="Suggestions are not open.", ephemeral=True)
             return
-
+    
         guild = interaction.guild
         ch_id = run["channels"].get("suggestions") or run["channels"]["announcement"]
         ch = guild.get_channel(ch_id) if guild else None
+    
         if not isinstance(ch, discord.TextChannel):
             await self.safe_respond(interaction, content="Suggestions channel not found.", ephemeral=True)
             return
-
-        existing_id = run["public_messages"].get("suggestions_message_id")
+    
         pending = sum(1 for s in run.get("suggestions", []) if s.get("state") == "pending")
-
+    
         content = (
-            f"💡 **Got an idea for _{run.get('name','the awards')}_?**\n"
-            f"📥 Current suggestions: **{pending}**\n\n"
-            "Suggest an award category you’d love to see included.\n"
+            f"💡 **Got an idea for _{run['name']}_?**\n\n"
+            f"📥 Current suggestions: **{pending}**\n"
+            "Suggest an award category you’d love to see included.\n\n"
             "👉 Click below:"
         )
-
+    
         view = PublicEntryView(run_id, suggest=True, fill=False)
-
-        # EDIT existing post if it exists (prevents “disappearing”)
-        if existing_id:
-            try:
-                msg = await ch.fetch_message(existing_id)
-                await msg.edit(content=content, view=view)
-                await self.safe_respond(interaction, content=f"🔁 Updated existing suggestions post in {ch.mention}", ephemeral=True)
-                return
-            except discord.NotFound:
-                pass
-
+    
+        # ✅ ALWAYS post a new message
         msg = await ch.send(content, view=view)
+    
+        # Keep reference to the latest one (for mods / logs only)
         run["public_messages"]["suggestions_message_id"] = msg.id
         await self.save_data()
-        await self.log_mod(run, f"📣 Suggestions post created in {ch.mention}")
-        await self.safe_respond(interaction, content=f"✅ Posted suggestion button in {ch.mention}", ephemeral=True)
+    
+        await self.log_mod(run, f"📣 New suggestions post created in {ch.mention}")
+        await self.safe_respond(
+            interaction,
+            content=f"✅ New suggestions post created in {ch.mention}",
+            ephemeral=True
+        )
 
     async def submit_suggestion(self, interaction: discord.Interaction, run_id: str, text: str):
         run = self.run_by_id(run_id)
