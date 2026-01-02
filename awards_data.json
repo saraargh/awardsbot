@@ -18,52 +18,76 @@
     },
     "public_messages": {
       "suggestions_message_id": 1456446155423748238,
-      "submissions_message_id": 1456447067730874602,
+      "submissions_message_id": null,
       "chaos_message_id": null
     },
-    "deadline": "2026-01-09T00:40:39.624191+00:00",
+    "deadline": "2026-01-09T00:41:24.252980+00:00",
     "suggestions": [
       {
         "id": "sug_1767314242_1238834298338152498",
         "text": "The most washed dn player",
         "suggested_by": 1238834298338152498,
         "at": "2026-01-02T00:37:22.446800+00:00",
-        "state": "pending"
+        "state": "approved"
       },
       {
         "id": "sug_1767314265_1238834298338152498",
         "text": "The hottest",
         "suggested_by": 1238834298338152498,
         "at": "2026-01-02T00:37:45.077423+00:00",
-        "state": "pending"
+        "state": "approved"
       },
       {
         "id": "sug_1767314283_1238834298338152498",
         "text": "The silliest girlie",
         "suggested_by": 1238834298338152498,
         "at": "2026-01-02T00:38:03.782812+00:00",
-        "state": "pending"
+        "state": "approved"
       }
     ],
     "questions": [
       {
-        "id": "q_1767314414",
-        "text": "poop",
+        "id": "q_1767314308",
+        "text": "the biggest pooper",
         "type": "user_select",
         "max": 1,
         "required": true,
         "choices": [],
         "enabled": true,
         "order": 0
+      },
+      {
+        "id": "q_1767314337",
+        "text": "The most washed dn player",
+        "type": "user_select",
+        "max": 1,
+        "required": true,
+        "choices": [],
+        "enabled": true,
+        "order": 1
+      },
+      {
+        "id": "q_1767314354",
+        "text": "The silliest girlie",
+        "type": "user_select",
+        "max": 1,
+        "required": true,
+        "choices": [],
+        "enabled": true,
+        "order": 2
+      },
+      {
+        "id": "q_1767314367",
+        "text": "The hottest",
+        "type": "user_select",
+        "max": 1,
+        "required": true,
+        "choices": [],
+        "enabled": true,
+        "order": 3
       }
     ],
-    "submissions": {
-      "1238834298338152498": {
-        "answers": {},
-        "submitted_at": null,
-        "last_updated_at": "2026-01-02T00:40:43.826881+00:00"
-      }
-    },
+    "submissions": {},
     "reveal": {
       "mode": null,
       "started_at": null,
