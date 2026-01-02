@@ -55,6 +55,16 @@
         "choices": [],
         "enabled": true,
         "order": 0
+      },
+      {
+        "id": "q_1767314337",
+        "text": "The most washed dn player",
+        "type": "user_select",
+        "max": 1,
+        "required": true,
+        "choices": [],
+        "enabled": true,
+        "order": 1
       }
     ],
     "submissions": {},
