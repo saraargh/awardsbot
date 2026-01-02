@@ -22,7 +22,15 @@
       "chaos_message_id": null
     },
     "deadline": null,
-    "suggestions": [],
+    "suggestions": [
+      {
+        "id": "sug_1767314242_1238834298338152498",
+        "text": "The most washed dn player",
+        "suggested_by": 1238834298338152498,
+        "at": "2026-01-02T00:37:22.446800+00:00",
+        "state": "pending"
+      }
+    ],
     "questions": [],
     "submissions": {},
     "reveal": {
