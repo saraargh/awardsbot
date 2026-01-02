@@ -87,7 +87,13 @@
         "order": 3
       }
     ],
-    "submissions": {},
+    "submissions": {
+      "1238834298338152498": {
+        "answers": {},
+        "submitted_at": null,
+        "last_updated_at": "2026-01-02T00:41:28.706744+00:00"
+      }
+    },
     "reveal": {
       "mode": null,
       "started_at": null,
