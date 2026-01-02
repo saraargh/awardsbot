@@ -17,17 +17,17 @@
       "modlog": 1455049263976284162
     },
     "public_messages": {
-      "suggestions_message_id": 1456448214344405153,
+      "suggestions_message_id": null,
       "submissions_message_id": null,
       "chaos_message_id": null
     },
-    "deadline": "2026-01-09T00:45:08.100447+00:00",
+    "deadline": null,
     "suggestions": [
       {
-        "id": "sug_1767314722_1238834298338152498",
-        "text": "poopie number 1",
+        "id": "sug_1767314735_1238834298338152498",
+        "text": "Poopie number 2",
         "suggested_by": 1238834298338152498,
-        "at": "2026-01-02T00:45:22.010334+00:00",
+        "at": "2026-01-02T00:45:35.375380+00:00",
         "state": "pending"
       }
     ],
