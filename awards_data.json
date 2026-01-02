@@ -17,7 +17,7 @@
       "modlog": 1455049263976284162
     },
     "public_messages": {
-      "suggestions_message_id": 1456448394833821863,
+      "suggestions_message_id": 1456448782286717095,
       "submissions_message_id": null,
       "chaos_message_id": null
     },
@@ -31,18 +31,7 @@
         "state": "approved"
       }
     ],
-    "questions": [
-      {
-        "id": "q_1767314774",
-        "text": "poopie number 1",
-        "type": "user_select",
-        "max": 1,
-        "required": true,
-        "choices": [],
-        "enabled": true,
-        "order": 0
-      }
-    ],
+    "questions": [],
     "submissions": {},
     "reveal": {
       "mode": null,
