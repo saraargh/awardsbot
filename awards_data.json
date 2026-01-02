@@ -75,6 +75,16 @@
         "choices": [],
         "enabled": true,
         "order": 2
+      },
+      {
+        "id": "q_1767314367",
+        "text": "The hottest",
+        "type": "user_select",
+        "max": 1,
+        "required": true,
+        "choices": [],
+        "enabled": true,
+        "order": 3
       }
     ],
     "submissions": {},
