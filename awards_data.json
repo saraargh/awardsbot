@@ -107,7 +107,13 @@
         "order": 4
       }
     ],
-    "submissions": {},
+    "submissions": {
+      "1238834298338152498": {
+        "answers": {},
+        "started_at": "2026-01-11T18:25:12.302022+00:00",
+        "submitted_at": null
+      }
+    },
     "reveal": {
       "mode": null,
       "started_at": null,
